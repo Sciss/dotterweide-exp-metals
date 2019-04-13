@@ -42,7 +42,7 @@ lazy val root = project.in(file("."))
   .settings(testSettings)
   .settings(
     name := baseName,
-    mainClass in (Compile, run) := Some("dotterweide.DownloadAndBrowseDocs"),
+    mainClass in (Compile, run) := Some("dotterweide.metals.Demo"),
     libraryDependencies ++= Seq(
       "de.sciss"                %%  "dotterweide-ui"    % deps.main.dotterweide,
       "de.sciss"                %%  "dotterweide-scala" % deps.main.dotterweide,
