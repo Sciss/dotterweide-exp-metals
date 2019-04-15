@@ -171,10 +171,11 @@ private class MetalsActor(scalaVersion: Version, protected val prelude: String, 
       }
     } else {
       previousSrc.foreach { c =>
-        c.fSrc.delete()
+//        c.fSrc.delete()
         previousSrc = None
       }
-      val fSrc    = File.createTempIn(fSrcRoot, prefix = "dotterweide", suffix = ".scala")
+//      val fSrc    = File.createTempIn(fSrcRoot, prefix = "dotterweide", suffix = ".scala")
+      val fSrc    = fSrcRoot / "dotterweide.scala"
       previousSrc = Some(Compilation(fSrc, sender(), text0))
 
       writeToFile(fSrc)(text0)
