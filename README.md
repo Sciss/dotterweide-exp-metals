@@ -10,7 +10,7 @@ This repository is covered by the
 
 The project build with [sbt](http://www.scala-sbt.org/) with the main Scala version being 2.13.x.
 
-There is a first [demo video](https://peertube.social/videos/watch/3b142190-26b1-47f6-8950-0e0700e19883) showing that it works in principle (semantic highlighting).
+There is a first [demo video](https://peertube.social/videos/watch/3b142190-26b1-47f6-8950-0e0700e19883) showing that it works in principle (compiler error highlighting).
 
 ## credits
 
