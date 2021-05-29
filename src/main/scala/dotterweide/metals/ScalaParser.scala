@@ -56,7 +56,7 @@ class ScalaParser(scalaVersion: Version, prelude: String, postlude: String) exte
     import async.executionContext
 
     // XXX TODO --- timeout is arbitrary
-    val fut = compilerActor.ask(Compile(text))(Timeout(5, TimeUnit.SECONDS)).mapTo[Node]
+    val fut = compilerActor.ask(Compile(text))(Timeout(60 /*5*/, TimeUnit.SECONDS)).mapTo[Node]
     fut.onComplete {
       case Success(_) =>
       case Failure(ex) =>
@@ -71,7 +71,7 @@ class ScalaParser(scalaVersion: Version, prelude: String, postlude: String) exte
     import async.executionContext
 
     // XXX TODO --- timeout is arbitrary
-    val fut = compilerActor.ask(Type(document.text, offset))(Timeout(5, TimeUnit.SECONDS)).mapTo[Option[NodeType]]
+    val fut = compilerActor.ask(Type(document.text, offset))(Timeout(60 /*5*/, TimeUnit.SECONDS)).mapTo[Option[NodeType]]
     fut.onComplete {
       case Success(_) =>
       case Failure(ex) =>
@@ -86,7 +86,7 @@ class ScalaParser(scalaVersion: Version, prelude: String, postlude: String) exte
     import async.executionContext
 
     // XXX TODO --- timeout is arbitrary
-    val fut = compilerActor.ask(Complete(document.text, offset))(Timeout(5, TimeUnit.SECONDS)).mapTo[Adviser.Result]
+    val fut = compilerActor.ask(Complete(document.text, offset))(Timeout(60 /*5*/, TimeUnit.SECONDS)).mapTo[Adviser.Result]
     fut.onComplete {
       case Success(_) =>
       case Failure(ex) =>

@@ -25,7 +25,7 @@ import dotterweide.{Example, FileType, Language}
 import scala.collection.immutable.{Seq => ISeq}
 
 class ScalaLanguage(
-                     val scalaVersion : Version = Version(2,12,8),
+                     val scalaVersion : Version = Version(2,13,6), // Version(2,12,8),
                      val prelude      : String  = "",
                      val postlude     : String  = "",
                      val examples     : ISeq[Example] = Nil

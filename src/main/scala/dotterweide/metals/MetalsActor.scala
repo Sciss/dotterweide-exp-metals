@@ -30,7 +30,7 @@ import dotterweide.node.impl.NodeImpl
 import org.eclipse.lsp4j.jsonrpc.Launcher
 import org.eclipse.lsp4j.launch.LSPLauncher
 import org.eclipse.lsp4j.services.{LanguageClient, LanguageServer}
-import org.eclipse.lsp4j.{ApplyWorkspaceEditParams, ApplyWorkspaceEditResponse, ClientCapabilities, CodeActionCapabilities, CompletionCapabilities, CompletionItemCapabilities, ConfigurationParams, DefinitionCapabilities, DiagnosticSeverity, DidChangeWatchedFilesCapabilities, DocumentHighlightCapabilities, ExecuteCommandCapabilities, FormattingCapabilities, HoverCapabilities, InitializeParams, InitializeResult, InitializedParams, MessageActionItem, MessageParams, MessageType, OnTypeFormattingCapabilities, PublishDiagnosticsParams, RangeFormattingCapabilities, ReferencesCapabilities, RegistrationParams, RenameCapabilities, ShowMessageRequestParams, SignatureHelpCapabilities, SymbolCapabilities, SynchronizationCapabilities, TextDocumentClientCapabilities, UnregistrationParams, WorkspaceClientCapabilities, WorkspaceEditCapabilities, WorkspaceFolder, Range => JRange}
+import org.eclipse.lsp4j.{ApplyWorkspaceEditParams, ApplyWorkspaceEditResponse, ClientCapabilities, CodeActionCapabilities, CompletionCapabilities, CompletionItemCapabilities, ConfigurationParams, DefinitionCapabilities, DiagnosticSeverity, DidChangeWatchedFilesCapabilities, DocumentHighlightCapabilities, ExecuteCommandCapabilities, FormattingCapabilities, HoverCapabilities, InitializeParams, InitializeResult, InitializedParams, LogTraceParams, MessageActionItem, MessageParams, MessageType, OnTypeFormattingCapabilities, ProgressParams, PublishDiagnosticsParams, RangeFormattingCapabilities, ReferencesCapabilities, RegistrationParams, RenameCapabilities, SetTraceParams, ShowDocumentParams, ShowDocumentResult, ShowMessageRequestParams, SignatureHelpCapabilities, SymbolCapabilities, SynchronizationCapabilities, TextDocumentClientCapabilities, UnregistrationParams, WorkDoneProgressCreateParams, WorkspaceClientCapabilities, WorkspaceEditCapabilities, WorkspaceFolder, Range => JRange}
 
 import scala.collection.JavaConverters._
 import scala.concurrent.ExecutionContext.Implicits._
@@ -80,7 +80,7 @@ private final class MetalsActor(scalaVersion: Version, protected val prelude: St
     val fProject = ws / "project"
     fProject.mkdir()
     val fProperties = fProject / "build.properties"
-    writeToFile(fProperties)("sbt.version=1.2.8\n")
+    writeToFile(fProperties)("sbt.version=1.5.2\n")
     val res = ws / "src" / "main" / "scala"
     res.mkdirs()
     val fBuild = ws / "build.sbt"
@@ -313,4 +313,27 @@ private final class MetalsActor(scalaVersion: Version, protected val prelude: St
 //    println(s"semanticHighlighting($par)")
 //    super.semanticHighlighting(par)
 //  }
+
+  /////// work-around for https://github.com/eclipse/lsp4j/issues/556
+
+  override def showDocument(params: ShowDocumentParams): CompletableFuture[ShowDocumentResult] =
+    super.showDocument(params)
+
+  override def createProgress(params: WorkDoneProgressCreateParams): CompletableFuture[Void] =
+    super.createProgress(params)
+
+  override def notifyProgress(params: ProgressParams): Unit =
+    super.notifyProgress(params)
+
+  override def logTrace(params: LogTraceParams): Unit =
+    super.logTrace(params)
+
+  override def setTrace(params: SetTraceParams): Unit =
+    super.setTrace(params)
+
+  override def refreshSemanticTokens(): CompletableFuture[Void] =
+    super.refreshSemanticTokens()
+
+  override def refreshCodeLenses(): CompletableFuture[Void] =
+    super.refreshCodeLenses()
 }
