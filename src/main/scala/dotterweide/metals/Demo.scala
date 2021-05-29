@@ -2,7 +2,7 @@
  *  LanguageClientTest.scala
  *  (Dotterweide)
  *
- *  Copyright (c) 2019 the Dotterweide authors. All rights reserved.
+ *  Copyright (c) 2019-2021 the Dotterweide authors. All rights reserved.
  *
  *  This software is published under the GNU Lesser General Public License v2.1+
  *

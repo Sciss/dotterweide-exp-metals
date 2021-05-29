@@ -11,6 +11,7 @@ val deps = new {
     val lsp4j       = "0.12.0"
     val scalaSwing  = "3.0.0"
     val scopt       = "4.0.1"
+    val tm4e        = "0.1.0"
   }
   val test = new {
     val scalaTest   = "3.2.9"
@@ -51,7 +52,7 @@ lazy val root = project.in(file("."))
       "org.scala-lang.modules"  %%  "scala-swing"         % deps.main.scalaSwing,   // UI
       "org.eclipse.lsp4j"       %   "org.eclipse.lsp4j"   % deps.main.lsp4j,        // language client
 //      "dev.secondsun"           % "org.eclipse.tm4e.core" % "0.4.8",              // testing text-mate grammar parser
-      "de.sciss"                % "tm4e-core"             % "0.1.0-SNAPSHOT",       // testing text-mate grammar parser
+      "de.sciss"                % "tm4e-core"             % deps.main.tm4e,         // testing text-mate grammar parser
     )
   )
 

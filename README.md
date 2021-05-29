@@ -1,6 +1,9 @@
 # dotterweide-exp-metals
 
-The dotterweide projects aims to develop an embeddable mini-IDE with support for the Scala programming language.
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dotterweide/dotterweide-org?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://github.com/github.com/dotterweide/dotterweide-exp-metals/workflows/Scala%20CI/badge.svg?branch=main)](https://github.com/github.com/dotterweide/dotterweide-exp-metals/actions?query=workflow%3A%22Scala+CI%22)
+
+The Dotterweide projects aims to develop an embeddable mini-IDE with support for the Scala programming language.
 Please refer to the [organisational project](https://github.com/dotterweide/dotterweide-org) for further information.
 
 This `-exp-metals` repository contains experimental code to understand potential interaction with
