@@ -29,10 +29,15 @@ You currently have to install Metals in the project's root directory:
 
 For bundling Coursier to install Metals, see [Mellite-launcher project](https://github.com/Sciss/Mellite-launcher).
 
-Possible syntax parsers to replace scalariform:
+Possible syntax parsers to replace scalariform. First, based on TextMate and VS Code:
 
 - https://github.com/scala/vscode-scala-syntax - reg-ex based type script file
-- https://github.com/com-lihaoyi/fastparse - Scala library that includes a parser example for Scala 2
 - https://github.com/Microsoft/vscode-textmate - the regex parser for textmate bundles used by vs code (wraps Oniguruma C regex library via wasm)
 - https://github.com/jruby/joni - Java port of Oniguruma
 - https://github.com/eclipse/tm4e - Java port of vscode-textmate for use within eclipse, but core package seems usable outside of eclipse
+
+Then Ammonite:
+
+- https://github.com/com-lihaoyi/fastparse - Scala library that includes a parser example for Scala 2
+
+LH says "Ammonite uses scalaparse for syntax highlighting without generating a token stream; you can look at the code and see how it's done with intercept and tracking character ranges".
