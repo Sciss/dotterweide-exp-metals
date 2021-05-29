@@ -33,4 +33,5 @@ Possible syntax parsers to replace scalariform:
 
 - https://github.com/scala/vscode-scala-syntax - reg-ex based type script file
 - https://github.com/com-lihaoyi/fastparse - Scala library that includes a parser example for Scala 2
-
+- https://github.com/Microsoft/vscode-textmate - the regex parser for textmate bundles used by vs code (wraps Oniguruma C regex library via wasm)
+- https://github.com/jruby/joni - Java port of Oniguruma
