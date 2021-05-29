@@ -8,7 +8,9 @@ the [Metals](https://scalameta.org/metals/) language server.
 This repository is covered by the
 [GNU Lesser General Public License v2.1](https://www.gnu.org/licenses/lgpl-2.1.txt) or higher.
 
-The project build with [sbt](http://www.scala-sbt.org/) with the main Scala version being 2.12.x.
+The project build with [sbt](http://www.scala-sbt.org/) with the main Scala version being 2.13.x.
+
+There is a first [demo video](https://peertube.social/videos/watch/3b142190-26b1-47f6-8950-0e0700e19883) showing that it works in principle (semantic highlighting).
 
 ## credits
 
@@ -19,4 +21,6 @@ released under Apache 2.0 License.
 
 You currently have to install Metals in the project's root directory:
 
-    coursier bootstrap --java-opt -Dmetals.http=on org.scalameta:metals_2.12:0.5.0 -o metals -f
+    coursier bootstrap org.scalameta:metals_2.12:0.10.3 -o metals -f
+
+(If using a snapshot version of metals, add `-r sonatype:snapshots`).
