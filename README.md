@@ -24,3 +24,13 @@ You currently have to install Metals in the project's root directory:
     coursier bootstrap org.scalameta:metals_2.12:0.10.3 -o metals -f
 
 (If using a snapshot version of metals, add `-r sonatype:snapshots`).
+
+## notes
+
+For bundling Coursier to install Metals, see [Mellite-launcher project](https://github.com/Sciss/Mellite-launcher).
+
+Possible syntax parsers to replace scalariform:
+
+- https://github.com/scala/vscode-scala-syntax - reg-ex based type script file
+- https://github.com/com-lihaoyi/fastparse - Scala library that includes a parser example for Scala 2
+
