@@ -7,3 +7,4 @@ project/boot/
 /metals
 /.metals
 .bloop
+/.bsp

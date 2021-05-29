@@ -16,7 +16,6 @@ import java.io.{FileOutputStream, InputStream, OutputStream}
 import java.net.URI
 import java.util.concurrent.CompletableFuture
 import java.{util => ju}
-
 import akka.actor.{Actor, ActorRef}
 import akka.event.{Logging, LoggingAdapter}
 import de.sciss.file._
@@ -26,11 +25,12 @@ import dotterweide.document.{LinedString, LinesHolder}
 import dotterweide.editor.Aborted
 import dotterweide.languages.scala.node.ThisNode
 import dotterweide.metals.Implicits._
-import dotterweide.node.{Node, NodeImpl}
+import dotterweide.node.Node
+import dotterweide.node.impl.NodeImpl
 import org.eclipse.lsp4j.jsonrpc.Launcher
 import org.eclipse.lsp4j.launch.LSPLauncher
 import org.eclipse.lsp4j.services.{LanguageClient, LanguageServer}
-import org.eclipse.lsp4j.{ApplyWorkspaceEditParams, ApplyWorkspaceEditResponse, ClientCapabilities, CodeActionCapabilities, CompletionCapabilities, CompletionItemCapabilities, ConfigurationParams, DefinitionCapabilities, DiagnosticSeverity, DidChangeWatchedFilesCapabilities, DocumentHighlightCapabilities, ExecuteCommandCapabilities, FormattingCapabilities, HoverCapabilities, InitializeParams, InitializeResult, InitializedParams, MessageActionItem, MessageParams, MessageType, OnTypeFormattingCapabilities, PublishDiagnosticsParams, RangeFormattingCapabilities, ReferencesCapabilities, RegistrationParams, RenameCapabilities, SemanticHighlightingCapabilities, SemanticHighlightingParams, ShowMessageRequestParams, SignatureHelpCapabilities, SymbolCapabilities, SynchronizationCapabilities, TextDocumentClientCapabilities, UnregistrationParams, WorkspaceClientCapabilities, WorkspaceEditCapabilities, WorkspaceFolder, Range => JRange}
+import org.eclipse.lsp4j.{ApplyWorkspaceEditParams, ApplyWorkspaceEditResponse, ClientCapabilities, CodeActionCapabilities, CompletionCapabilities, CompletionItemCapabilities, ConfigurationParams, DefinitionCapabilities, DiagnosticSeverity, DidChangeWatchedFilesCapabilities, DocumentHighlightCapabilities, ExecuteCommandCapabilities, FormattingCapabilities, HoverCapabilities, InitializeParams, InitializeResult, InitializedParams, MessageActionItem, MessageParams, MessageType, OnTypeFormattingCapabilities, PublishDiagnosticsParams, RangeFormattingCapabilities, ReferencesCapabilities, RegistrationParams, RenameCapabilities, ShowMessageRequestParams, SignatureHelpCapabilities, SymbolCapabilities, SynchronizationCapabilities, TextDocumentClientCapabilities, UnregistrationParams, WorkspaceClientCapabilities, WorkspaceEditCapabilities, WorkspaceFolder, Range => JRange}
 
 import scala.collection.JavaConverters._
 import scala.concurrent.ExecutionContext.Implicits._
@@ -217,7 +217,7 @@ private class MetalsActor(scalaVersion: Version, protected val prelude: String, 
     capCTextDoc.setRangeFormatting(new RangeFormattingCapabilities)
     capCTextDoc.setReferences(new ReferencesCapabilities)
     capCTextDoc.setRename(new RenameCapabilities)
-    capCTextDoc.setSemanticHighlightingCapabilities(new SemanticHighlightingCapabilities(false))
+//    capCTextDoc.setSemanticHighlightingCapabilities(new SemanticHighlightingCapabilities(false))
     capCTextDoc.setSignatureHelp(new SignatureHelpCapabilities)
     capCTextDoc.setSynchronization(new SynchronizationCapabilities(true, true, true))
 
@@ -309,8 +309,8 @@ private class MetalsActor(scalaVersion: Version, protected val prelude: String, 
     super.configuration(par)
   }
 
-  override def semanticHighlighting(par: SemanticHighlightingParams): Unit = {
-    println(s"semanticHighlighting($par)")
-    super.semanticHighlighting(par)
-  }
+//  override def semanticHighlighting(par: SemanticHighlightingParams): Unit = {
+//    println(s"semanticHighlighting($par)")
+//    super.semanticHighlighting(par)
+//  }
 }
