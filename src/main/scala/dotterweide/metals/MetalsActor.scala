@@ -51,7 +51,7 @@ private object MetalsActor {
     lazy val lines: LinesHolder = new LinedString(text)
   }
 }
-private class MetalsActor(scalaVersion: Version, protected val prelude: String, protected val postlude: String)
+private final class MetalsActor(scalaVersion: Version, protected val prelude: String, protected val postlude: String)
   extends Actor with LanguageClient // with ParserImpl with AdviserImpl with TypeImpl
 {
 
@@ -232,7 +232,7 @@ private class MetalsActor(scalaVersion: Version, protected val prelude: String, 
 
   // ---- language-client interface ----
 
-  def logMessage(message: MessageParams): Unit = {
+  override def logMessage(message: MessageParams): Unit = {
     val lvl = message.getType match {
       case MessageType.Error    => Logging.ErrorLevel
       case MessageType.Warning  => Logging.WarningLevel
@@ -242,10 +242,10 @@ private class MetalsActor(scalaVersion: Version, protected val prelude: String, 
     log.log(lvl, message.getMessage)
   }
 
-  def telemetryEvent(obj: Any): Unit =
+  override def telemetryEvent(obj: Any): Unit =
     println(s"telemetryEvent($obj)")
 
-  def publishDiagnostics(dia: PublishDiagnosticsParams): Unit = {
+  override def publishDiagnostics(dia: PublishDiagnosticsParams): Unit = {
     println(s"publishDiagnostics for ${dia.getUri}")
     val uri   = new URI(dia.getUri)
     val list  = dia.getDiagnostics.iterator.asScala.collect {
@@ -256,10 +256,10 @@ private class MetalsActor(scalaVersion: Version, protected val prelude: String, 
     self ! Diagnostics(uri, list) // println(s"publishDiagnostics($dia)")
   }
 
-  def showMessage(par: MessageParams): Unit =
+  override def showMessage(par: MessageParams): Unit =
     println(s"showMessage($par)")
 
-  def showMessageRequest(par: ShowMessageRequestParams): CompletableFuture[MessageActionItem] = {
+  override def showMessageRequest(par: ShowMessageRequestParams): CompletableFuture[MessageActionItem] = {
     println(s"showMessageRequest($par)")
     val res = Promise[MessageActionItem]()
     Swing.onEDT {
