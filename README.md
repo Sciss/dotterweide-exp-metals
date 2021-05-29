@@ -17,6 +17,9 @@ There is a first [demo video](https://peertube.social/videos/watch/3b142190-26b1
 We use knowledge from [intelli-lsp](https://github.com/gtache/intellij-lsp) by Guillaume Tâche,
 released under Apache 2.0 License.
 
+File `Scala.tmLanguage.json`, while evaluating tm4s, is taken from https://github.com/scala/vscode-scala-syntax ,
+released under MIT License.
+
 ## installation
 
 You currently have to install Metals in the project's root directory:

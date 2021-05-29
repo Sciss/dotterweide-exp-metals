@@ -44,12 +44,14 @@ lazy val root = project.in(file("."))
     name := baseName,
     mainClass in (Compile, run) := Some("dotterweide.metals.Demo"),
     libraryDependencies ++= Seq(
-      "de.sciss"                %%  "dotterweide-ui"    % deps.main.dotterweide,
-      "de.sciss"                %%  "dotterweide-scala" % deps.main.dotterweide,
-      "de.sciss"                %%  "fileutil"          % deps.main.fileUtil,     // extension methods for files
-      "com.github.scopt"        %%  "scopt"             % deps.main.scopt,        // command line parsing
-      "org.scala-lang.modules"  %%  "scala-swing"       % deps.main.scalaSwing,   // UI
-      "org.eclipse.lsp4j"       %   "org.eclipse.lsp4j" % deps.main.lsp4j         // language client
+      "de.sciss"                %%  "dotterweide-ui"      % deps.main.dotterweide,
+      "de.sciss"                %%  "dotterweide-scala"   % deps.main.dotterweide,
+      "de.sciss"                %%  "fileutil"            % deps.main.fileUtil,     // extension methods for files
+      "com.github.scopt"        %%  "scopt"               % deps.main.scopt,        // command line parsing
+      "org.scala-lang.modules"  %%  "scala-swing"         % deps.main.scalaSwing,   // UI
+      "org.eclipse.lsp4j"       %   "org.eclipse.lsp4j"   % deps.main.lsp4j,        // language client
+//      "dev.secondsun"           % "org.eclipse.tm4e.core" % "0.4.8",              // testing text-mate grammar parser
+      "de.sciss"                % "tm4e-core"             % "0.1.0-SNAPSHOT",       // testing text-mate grammar parser
     )
   )
 
