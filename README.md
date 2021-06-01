@@ -42,6 +42,9 @@ Possible syntax parsers to replace scalariform. First, based on TextMate and VS 
 - https://github.com/jruby/joni - Java port of Oniguruma
 - https://github.com/eclipse/tm4e - Java port of vscode-textmate for use within eclipse, but core package seems usable outside of eclipse
 
+Ólafur says "you can populate the download cache by calling this dedicated main method 
+https://github.com/scalameta/metals/blob/main/metals/src/main/scala/scala/meta/metals/DownloadDependencies.scala "
+
 Then Ammonite:
 
 - https://github.com/com-lihaoyi/fastparse - Scala library that includes a parser example for Scala 2

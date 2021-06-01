@@ -30,7 +30,14 @@ object TextMateTest {
     val grammar     = registry.loadGrammarFromPathSync("Scala.tmLanguage.json",
       TextMateTest.getClass.getResourceAsStream("/Scala.tmLanguage.json"))
 
-    val source      = "object Foo { def main(args: Array[String]): Unit = println(\"Hello\") }"
+//    val source      = "object Foo { def main(args: Array[String]): Unit = println(\"Hello\") }"
+    val source      =
+      """import math.*
+        |
+        |object Foo:
+        |  // bar
+        |  def main(args: Array[String]): Unit =
+        |    println("Hello " + Pi)""".stripMargin
 
     def mkTokens() = {
       val t1          = System.currentTimeMillis()
