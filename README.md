@@ -57,5 +57,5 @@ and see how it's done with intercept and tracking character ranges".
 
 ## Current issues
 
-Some compiler errors are caught by bloop (`stale bloop error: ...``) instead of being communicated via LSP, see
+Some compiler errors are caught by bloop (`stale bloop error: ...`) instead of being communicated via LSP, see
 https://github.com/scalameta/metals/discussions/5527
