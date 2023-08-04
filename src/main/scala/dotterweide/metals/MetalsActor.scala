@@ -2,7 +2,7 @@
  *  CompilerActor.scala
  *  (Dotterweide)
  *
- *  Copyright (c) 2019-2021 the Dotterweide authors. All rights reserved.
+ *  Copyright (c) 2019-2023 Hanns Holger Rutz. All rights reserved.
  *
  *  This software is published under the GNU Lesser General Public License v2.1+
  *
@@ -255,6 +255,11 @@ private final class MetalsActor(scalaVersion: Version, protected val prelude: St
   override def publishDiagnostics(dia: PublishDiagnosticsParams): Unit = {
     println(s"publishDiagnostics for ${dia.getUri}")
     val uri   = new URI(dia.getUri)
+    println(">>>")
+    dia.getDiagnostics.iterator.asScala.foreach { d =>
+      println(s"  $d")
+    }
+    println("<<<")
     val list  = dia.getDiagnostics.iterator.asScala.collect {
       // XXX TODO --- we currently collect errors only, because that's the assumption of `Node#problem`
       case d if d.getSeverity == DiagnosticSeverity.Error =>

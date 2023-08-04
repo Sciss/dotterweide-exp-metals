@@ -1,19 +1,23 @@
 # Contributing
 
-We'd love for you to contribute and to improve this project!
+We'd love for you to contribute to our source code and to improve this project!
 
-As the project is only about to start, we have not strictly defined the guidelines for contribution yet.
-This repository is about experimenting with Metals and mainly contains soure code. Whether you wish to
-contribute to this repository or start off another sub-project in the context of dotterweide, the best
-is to talk to us on the Gitter channel.
+ - [Issues and Bugs](#issue)
+ - [Submission Guidelines](#submit)
+ - [Coding Rules](#rules)
+ - [Commit Message Guidelines](#commit)
+ - [Signing the CLA](#cla)
+ - [Further Info](#info)
 
-The basic procedure should be that you fork the respective repository from the dotterweide organisation
-to your personal GitHub account, create a new branch with a meaningful name (e.g. `topic-foo`), check in
-your changes there and use the pull-request (PR) feature of GitHub (see below for pull requests).
-Your PR will then be reviewed and either directly merged, or we propose some necessary changes.
+## <a name="issue"></a> Found an Issue?
 
-If you find things that you feel you are not able to wrap in a pull request, please feel free to open
-a corresponding issue on the issue tracker. Below are some guidelines for opening a successful ticket.
+If you find a bug in the source code or a mistake in the documentation, you can help us by
+submitting an issue to the project's git Repository. Even better you can submit a Pull Request
+with a fix.
+
+__Please see the Submission Guidelines below__.
+
+## <a name="submit"></a> Submission Guidelines
 
 ### Submitting an Issue
 
@@ -24,12 +28,14 @@ Help us to maximise the effort we can spend fixing issues and adding new
 features, by not reporting duplicate issues. Providing the following information will increase the
 chances of your issue being dealt with quickly:
 
-- __Overview of the Issue__ - in the case of code, if an error is being thrown a non-minified stack trace helps.
-  In the case of a text document, describe which document you are referring to.
-- __Motivation for or Use Case__ - explain why this is an issue for you
+- __Overview of the Issue__ - if an error is being thrown a non-minified stack trace helps
+- __Motivation for or Use Case__ - explain why this is a bug for you
+- __Project Version(s)__ - is it a regression?
+- __Environment and Operating System__ - state under which system the problem occurs (OS, Java and Scala version etc.)
+- __Reproduce the Error__ - provide a simple reproducible example or an unambiguous set of steps.
 - __Related Issues__ - has a similar issue been reported before?
-- __Suggest a Fix__ - if you can't fix the issue yourself, perhaps you can point to what might be
-  causing the problem (line of code or commit, or position in a text document)
+- __Suggest a Fix__ - if you can't fix the bug yourself, perhaps you can point to what might be
+  causing the problem (line of code or commit)
 
 __If you get help, help others. That way everyone benefits!__
 
@@ -39,16 +45,17 @@ Before you submit your pull request consider the following guidelines:
 
 - Search the git repository for an open or closed Pull Request
   that relates to your submission. You don't want to duplicate effort.
-- By submitting a pull request, you guarantee us that you are legally allowed
-  to provide us with this request, i.e. that the requests contains your own
-  original work and does not infringe on anybody else's copyright.
+- Please sign our [Contributor License Agreement (CLA)](#cla) before sending pull
+  requests. We cannot accept code without this.
 - Make your changes in a new git branch:
 
      ```shell
-     git checkout -b issue-descriptive-name-branch main
+     git checkout -b issue-descriptive-name-branch work
      ```
 
-- Create your patch (__including appropriate test cases__ if applicable).
+- Create your patch, __including appropriate test cases__ if applicable.
+- Follow our [Coding Rules](#rules).
+- Run the project's full test suite (if provided) and ensure that all tests pass.
 - Commit your changes using a descriptive commit message that follows our
   [commit message conventions](#commit-message-format).
 
@@ -57,18 +64,21 @@ Before you submit your pull request consider the following guidelines:
      ```
   Note: the optional commit `-a` command line option will automatically "add" and "rm" edited files.
 
-- Push your branch to the git hosting service (e.g. GitHub):
+- Build your changes locally to ensure all the tests pass (typically `sbt clean test`).
+
+- Push your branch to the git hosting service (e.g. GitLab):
 
     ```shell
     git push origin issue-descriptive-name-branch
     ```
 
-- In the git hosting service (e.g. GitHub), send a pull request to the upstream `work` branch, 
-  if it exists, or to `main` branch if no `work` branch exists.
+- In the git hosting service (e.g. GitLab), send a pull request to the upstream `work` branch, 
+  or to `main` branch if no `work` branch exists.
   If you are unsure about which branch to use as reference,
   consult with us first (through the issue tracker) to determine the best point of merge.
 - If we suggest changes then:
     - Please make the required updates.
+    - Re-run the test suite to ensure tests are still passing.
     - Commit your changes to your branch (e.g. `issue-descriptive-name-branch`).
     - Push the changes to your git repository on the hosting service (this will update your Pull Request).
 
@@ -89,7 +99,7 @@ That's it! Thank you for your contribution!
 After your pull request is merged, you can safely delete your branch and pull the changes
 from the main (upstream) repository:
 
-- Delete the remote branch on the git hosting service (e.g. GitHub) either through its web UI or your local shell as follows:
+- Delete the remote branch on the git hosting service (e.g. GitLab) either through its web UI or your local shell as follows:
 
     ```shell
     git push origin --delete issue-descriptive-name-branch
@@ -113,6 +123,19 @@ from the main (upstream) repository:
     git pull --ff upstream work
     ```
 
+## <a name="rules"></a> Coding Rules
+
+To ensure consistency throughout the source code, keep these rules in mind as you are working:
+
+- All features or bug fixes __should be tested__ by one or more unit tests. For Scala projects, 
+  the preferred framework is [ScalaTest](http://scalatest.org/).
+- All public API methods __should be documented__ (scaladoc for Scala projects, javadoc for Java projects).
+- In general, follow the usual [Scala style guide](http://docs.scala-lang.org/style/). In particular
+    - UTF-8 character encoding
+    - two spaces indentation, no tabs
+    - line breaks after max 120 characters
+    - if you use IntelliJ IDEA, basically you can use the default auto-format of its Scala plugin.
+
 ## <a name="commit"></a> Git Commit Guidelines
 
 ### Commit Message Format
@@ -129,6 +152,20 @@ If the commit reverts a previous commit, it should begin with `revert: `, follow
 reverted commit. In the body it should say: `This reverts commit <hash>.`, where the hash is the SHA of the 
 commit being reverted.
 
+## <a name="cla"></a> Signing the CLA
+
+Please sign our Contributor License Agreement (CLA) before sending pull requests. For any code
+changes to be accepted, the CLA must be signed. It's a quick process, we promise!
+
+- The process is provided through the separate project
+  [github.com/Sciss/Contributing](https://github.com/Sciss/Contributing).
+- In particular read the document [sign-cla.md](https://github.com/Sciss/Contributing/blob/main/sign-cla.md).
+
+This CLA covers all projects at [github.com/Sciss](https://github.com/Sciss) 
+or [github.com/Sciss](https://github.com/Sciss), so you should have to go through
+this process only once. Thanks for your understanding.
+
 ## <a name="info"></a> Further Information
 
-When in doubt, please talk to us in the Gitter channel.
+You can find out more detailed information about contributing in the project
+[Sciss/Contributing](https://github.com/Sciss/Contributing).

@@ -52,4 +52,10 @@ Then Ammonite:
 
 - https://github.com/com-lihaoyi/fastparse - Scala library that includes a parser example for Scala 2
 
-LH says "Ammonite uses scalaparse for syntax highlighting without generating a token stream; you can look at the code and see how it's done with intercept and tracking character ranges".
+LH says "Ammonite uses scalaparse for syntax highlighting without generating a token stream; you can look at the code
+and see how it's done with intercept and tracking character ranges".
+
+## Current issues
+
+Some compiler errors are caught by bloop (`stale bloop error: ...``) instead of being communicated via LSP, see
+https://github.com/scalameta/metals/discussions/5527
