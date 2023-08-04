@@ -6,15 +6,15 @@ lazy val mimaVersion        = "0.1.0"
 // versions of library dependencies
 val deps = new {
   val main = new {
-    val dotterweide = "0.4.0"
+    val dotterweide = "0.4.3"
     val fileUtil    = "1.1.5"
-    val lsp4j       = "0.12.0"
+    val lsp4j       = "0.21.0"
     val scalaSwing  = "3.0.0"
-    val scopt       = "4.0.1"
+    val scopt       = "4.1.0"
     val tm4e        = "0.1.0"
   }
   val test = new {
-    val scalaTest   = "3.2.9"
+    val scalaTest   = "3.2.16"
   }
 }
 
@@ -22,8 +22,8 @@ lazy val commonSettings = Seq(
   version             := projectVersion,
   description         := "Dotterweide experiments in using the Metals language server",
   homepage            := Some(url(s"https://github.com/dotterweide/$baseNameL")),
-  scalaVersion        := "2.13.6",
-  crossScalaVersions  := Seq("2.13.6", "2.12.14"),
+  scalaVersion        := "2.13.11",
+  crossScalaVersions  := Seq("2.13.11", "2.12.14"),
   licenses            := Seq(lgpl2),
   scalacOptions      ++= Seq(
     "-deprecation", "-unchecked", "-feature", "-encoding", "utf8", "-Xlint", "-Xsource:2.13"
@@ -43,7 +43,7 @@ lazy val root = project.in(file("."))
   .settings(testSettings)
   .settings(
     name := baseName,
-    mainClass in (Compile, run) := Some("dotterweide.metals.Demo"),
+    Compile / run / mainClass := Some("dotterweide.metals.Demo"),
     libraryDependencies ++= Seq(
       "de.sciss"                %%  "dotterweide-ui"      % deps.main.dotterweide,
       "de.sciss"                %%  "dotterweide-scala"   % deps.main.dotterweide,

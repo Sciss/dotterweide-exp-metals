@@ -13,7 +13,8 @@ This repository is covered by the
 
 The project build with [sbt](http://www.scala-sbt.org/) with the main Scala version being 2.13.x.
 
-There is a first [demo video](https://peertube.social/videos/watch/3b142190-26b1-47f6-8950-0e0700e19883) showing that it works in principle (compiler error highlighting).
+There was a first [demo video](https://peertube.social/videos/watch/3b142190-26b1-47f6-8950-0e0700e19883) showing that
+it works in principle (compiler error highlighting).
 
 ## credits
 
@@ -27,7 +28,7 @@ released under MIT License.
 
 You currently have to install Metals in the project's root directory:
 
-    coursier bootstrap org.scalameta:metals_2.12:0.10.3 -o metals -f
+    coursier bootstrap org.scalameta:metals_2.13:1.0.0 -o metals -f
 
 (If using a snapshot version of metals, add `-r sonatype:snapshots`).
 
@@ -38,9 +39,11 @@ For bundling Coursier to install Metals, see [Mellite-launcher project](https://
 Possible syntax parsers to replace scalariform. First, based on TextMate and VS Code:
 
 - https://github.com/scala/vscode-scala-syntax - reg-ex based type script file
-- https://github.com/Microsoft/vscode-textmate - the regex parser for textmate bundles used by vs code (wraps Oniguruma C regex library via wasm)
+- https://github.com/Microsoft/vscode-textmate - the regex parser for textmate bundles used by vs code
+  (wraps Oniguruma C regex library via wasm)
 - https://github.com/jruby/joni - Java port of Oniguruma
-- https://github.com/eclipse/tm4e - Java port of vscode-textmate for use within eclipse, but core package seems usable outside of eclipse
+- https://github.com/eclipse/tm4e - Java port of vscode-textmate for use within eclipse, but core package seems
+  usable outside of eclipse
 
 Ólafur says "you can populate the download cache by calling this dedicated main method 
 https://github.com/scalameta/metals/blob/main/metals/src/main/scala/scala/meta/metals/DownloadDependencies.scala "
