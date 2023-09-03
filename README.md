@@ -28,7 +28,7 @@ released under MIT License.
 
 You currently have to install Metals in the project's root directory:
 
-    coursier bootstrap org.scalameta:metals_2.13:1.0.0 -o metals -f
+    coursier bootstrap org.scalameta:metals_2.13:1.0.1 -o metals -f
 
 (If using a snapshot version of metals, add `-r sonatype:snapshots`).
 

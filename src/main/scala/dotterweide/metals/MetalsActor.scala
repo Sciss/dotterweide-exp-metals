@@ -72,7 +72,7 @@ private final class MetalsActor(scalaVersion: Version, protected val prelude: St
   /*private[this] val metalsProcess: Process =*/ {
     val cmdMetals = "metals"
     val fMetals   = new File(cmdMetals)
-    val pb        = Process("bash" :: cmdMetals :: Nil, cwd = Some(fMetals.getAbsoluteFile.getParentFile))
+    val pb        = Process("bash" :: cmdMetals :: "-Dmetals.loglevel=debug" :: Nil, cwd = Some(fMetals.getAbsoluteFile.getParentFile))
     val io        = new ProcessIO(writeIn => metalsIn = writeIn, readOut => metalsOut = readOut, _ /*readErr*/ => ())
     /*val res =*/ pb.run(io)
     assert (metalsIn != null && metalsOut != null)
